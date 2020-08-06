@@ -15,6 +15,7 @@
 		64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF124DBF88E00BD6136 /* Model.swift */; };
 		64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF324DBFBB300BD6136 /* DateManager.swift */; };
 		64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */; };
+		64A6FE0824DC6D8200BD6136 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */; };
 		69C4B01294B8B543D528F50A /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		64A6FDF124DBF88E00BD6136 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		64A6FDF324DBFBB300BD6136 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
 		91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.release.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */,
 				64A6FDF324DBFBB300BD6136 /* DateManager.swift */,
 				64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */,
+				64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */,
 				64A6FDF124DBF88E00BD6136 /* Model.swift */,
 				64A6FDE324DBF55500BD6136 /* Main.storyboard */,
 				64A6FDE624DBF55700BD6136 /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 				64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */,
 				64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */,
 				64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */,
+				64A6FE0824DC6D8200BD6136 /* ExpenseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +368,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX37AVLC5L;
 				INFOPLIST_FILE = HowMuch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -383,6 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PX37AVLC5L;
 				INFOPLIST_FILE = HowMuch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

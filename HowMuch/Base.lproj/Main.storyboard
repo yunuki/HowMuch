@@ -18,6 +18,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH1-k1-H0N" customClass="FSCalendar">
                                 <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="xI7-mP-JdL" id="V3A-BI-DDB"/>
+                                    <outlet property="delegate" destination="xI7-mP-JdL" id="twd-ZM-lo0"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -29,10 +33,77 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AUT-wn-VJK"/>
                     </view>
+                    <connections>
+                        <outlet property="calendar" destination="NH1-k1-H0N" id="far-dR-FLr"/>
+                        <segue destination="yIt-4v-cvn" kind="presentation" identifier="expense" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="dFa-wn-ALE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DuI-Yf-zRY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="-72.321428571428569"/>
+            <point key="canvasLocation" x="1162" y="-72"/>
+        </scene>
+        <!--Expense View Controller-->
+        <scene sceneID="j5U-D9-3Kq">
+            <objects>
+                <viewController id="yIt-4v-cvn" customClass="ExpenseViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lue-9y-PG0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPy-Nt-xUu">
+                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                                <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <items>
+                                    <navigationItem title="내역" id="8jX-NR-vkK">
+                                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="sV4-zr-g5F"/>
+                                        <barButtonItem key="rightBarButtonItem" title="추가" id="h2d-wu-NZz">
+                                            <connections>
+                                                <action selector="addButtonTapped:" destination="yIt-4v-cvn" id="bvn-za-9yK"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="p3J-ws-vc9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="expense" id="z3S-IV-Hgt">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3S-IV-Hgt" id="Zej-Hq-RQy">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="yIt-4v-cvn" id="d0a-m0-6rc"/>
+                                    <outlet property="delegate" destination="yIt-4v-cvn" id="g9R-Vw-PEx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="p3J-ws-vc9" secondAttribute="bottom" id="4m2-zz-Kwc"/>
+                            <constraint firstItem="p3J-ws-vc9" firstAttribute="leading" secondItem="Jxe-zp-aqs" secondAttribute="leading" id="OwU-K1-Ezx"/>
+                            <constraint firstItem="p3J-ws-vc9" firstAttribute="trailing" secondItem="Jxe-zp-aqs" secondAttribute="trailing" id="SQS-FW-MLY"/>
+                            <constraint firstItem="uPy-Nt-xUu" firstAttribute="trailing" secondItem="Jxe-zp-aqs" secondAttribute="trailing" id="a61-we-xUx"/>
+                            <constraint firstItem="uPy-Nt-xUu" firstAttribute="leading" secondItem="Jxe-zp-aqs" secondAttribute="leading" id="c2z-f9-Jon"/>
+                            <constraint firstItem="uPy-Nt-xUu" firstAttribute="top" secondItem="Jxe-zp-aqs" secondAttribute="top" id="ng7-hB-5et"/>
+                            <constraint firstItem="p3J-ws-vc9" firstAttribute="top" secondItem="uPy-Nt-xUu" secondAttribute="bottom" id="pXU-pH-QEN"/>
+                            <constraint firstItem="p3J-ws-vc9" firstAttribute="top" secondItem="uPy-Nt-xUu" secondAttribute="bottom" id="tEo-Pf-axd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Jxe-zp-aqs"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XZD-Iu-SYi"/>
+                    <connections>
+                        <outlet property="expenseTableView" destination="p3J-ws-vc9" id="5MH-Ab-aPd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1az-oh-uef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2128.985507246377" y="-72.321428571428569"/>
         </scene>
     </scenes>
 </document>

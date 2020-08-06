@@ -7,24 +7,32 @@
 //
 
 import UIKit
+import FSCalendar
 
 class CalendarViewController: UIViewController {
-
+    
+    var selectedDate: Int = 0
+    
+    @IBOutlet weak var calendar: FSCalendar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        calendar.scrollDirection = .vertical
     }
     
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        self.selectedDate = DM.shared.format(d: date)
+        performSegue(withIdentifier: "expense", sender: nil)
     }
-    */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "expense" {
+            if let vc = segue.destination as? ExpenseViewController {
+                vc.selectedDate = self.selectedDate
+            }
+        }
+    }
 }
