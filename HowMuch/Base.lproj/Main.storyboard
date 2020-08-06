@@ -1,63 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZHN-C7-jZ4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xI7-mP-JdL">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Calendar Collection View Controller-->
-        <scene sceneID="RrC-Zb-LQd">
+        <!--Calendar View Controller-->
+        <scene sceneID="uYk-FG-iGg">
             <objects>
-                <viewController id="ZHN-C7-jZ4" customClass="CalendarCollectionViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="s62-9O-yxq">
+                <viewController id="xI7-mP-JdL" customClass="CalendarViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dRL-KF-st0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="8JT-b8-lTh">
-                                <rect key="frame" x="20" y="99" width="374" height="763"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NH1-k1-H0N" customClass="FSCalendar">
+                                <rect key="frame" x="20" y="44" width="374" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3k2-b0-Ux6">
-                                    <size key="itemSize" width="128" height="128"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="day" id="tbz-ba-8xs">
-                                        <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ESn-mc-YTK">
-                                            <rect key="frame" x="0.0" y="0.0" width="128" height="128"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </collectionViewCellContentView>
-                                        <color key="backgroundColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <connections>
-                                    <outlet property="dataSource" destination="ZHN-C7-jZ4" id="KpP-yK-qzN"/>
-                                    <outlet property="delegate" destination="ZHN-C7-jZ4" id="zWi-RD-3Pe"/>
-                                </connections>
-                            </collectionView>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="8JT-b8-lTh" firstAttribute="bottom" secondItem="lib-cS-73v" secondAttribute="bottom" id="Ljx-lT-Xnx"/>
-                            <constraint firstItem="8JT-b8-lTh" firstAttribute="leading" secondItem="lib-cS-73v" secondAttribute="leading" constant="20" id="dDL-jQ-HHX"/>
-                            <constraint firstItem="lib-cS-73v" firstAttribute="trailing" secondItem="8JT-b8-lTh" secondAttribute="trailing" constant="20" id="n6c-YC-w8B"/>
-                            <constraint firstItem="8JT-b8-lTh" firstAttribute="top" secondItem="lib-cS-73v" secondAttribute="top" constant="55" id="vY3-LR-N7b"/>
+                            <constraint firstItem="NH1-k1-H0N" firstAttribute="top" secondItem="AUT-wn-VJK" secondAttribute="top" id="823-30-qPV"/>
+                            <constraint firstItem="NH1-k1-H0N" firstAttribute="leading" secondItem="AUT-wn-VJK" secondAttribute="leading" constant="20" id="Juy-Ee-jlN"/>
+                            <constraint firstItem="NH1-k1-H0N" firstAttribute="bottom" secondItem="AUT-wn-VJK" secondAttribute="bottom" id="K4E-1j-A9E"/>
+                            <constraint firstItem="AUT-wn-VJK" firstAttribute="trailing" secondItem="NH1-k1-H0N" secondAttribute="trailing" constant="20" id="i5g-tz-sgr"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="lib-cS-73v"/>
+                        <viewLayoutGuide key="safeArea" id="AUT-wn-VJK"/>
                     </view>
-                    <connections>
-                        <outlet property="CalendarCollectionView" destination="8JT-b8-lTh" id="vSc-Zp-r9N"/>
-                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ehF-EP-JqW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DuI-Yf-zRY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="134.78260869565219" y="-83.035714285714278"/>
+            <point key="canvasLocation" x="1157.9710144927537" y="-72.321428571428569"/>
         </scene>
     </scenes>
 </document>

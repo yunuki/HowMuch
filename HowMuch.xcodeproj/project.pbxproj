@@ -13,8 +13,8 @@
 		64A6FDE724DBF55700BD6136 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64A6FDE624DBF55700BD6136 /* Assets.xcassets */; };
 		64A6FDEA24DBF55700BD6136 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A6FDE824DBF55700BD6136 /* LaunchScreen.storyboard */; };
 		64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF124DBF88E00BD6136 /* Model.swift */; };
-		64A6FDF424DBFBB300BD6136 /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF324DBFBB300BD6136 /* DateFormatter.swift */; };
-		64A6FDFC24DC016400BD6136 /* CalendarCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDFB24DC016400BD6136 /* CalendarCollectionViewController.swift */; };
+		64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF324DBFBB300BD6136 /* DateManager.swift */; };
+		64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */; };
 		69C4B01294B8B543D528F50A /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,8 +29,8 @@
 		64A6FDE924DBF55700BD6136 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		64A6FDEB24DBF55700BD6136 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		64A6FDF124DBF88E00BD6136 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		64A6FDF324DBFBB300BD6136 /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
-		64A6FDFB24DC016400BD6136 /* CalendarCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewController.swift; sourceTree = "<group>"; };
+		64A6FDF324DBFBB300BD6136 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.release.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,8 +77,8 @@
 			children = (
 				64A6FDDD24DBF55500BD6136 /* AppDelegate.swift */,
 				64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */,
-				64A6FDF324DBFBB300BD6136 /* DateFormatter.swift */,
-				64A6FDFB24DC016400BD6136 /* CalendarCollectionViewController.swift */,
+				64A6FDF324DBFBB300BD6136 /* DateManager.swift */,
+				64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */,
 				64A6FDF124DBF88E00BD6136 /* Model.swift */,
 				64A6FDE324DBF55500BD6136 /* Main.storyboard */,
 				64A6FDE624DBF55700BD6136 /* Assets.xcassets */,
@@ -212,11 +212,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */,
 				64A6FDDE24DBF55500BD6136 /* AppDelegate.swift in Sources */,
 				64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */,
-				64A6FDFC24DC016400BD6136 /* CalendarCollectionViewController.swift in Sources */,
 				64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */,
-				64A6FDF424DBFBB300BD6136 /* DateFormatter.swift in Sources */,
+				64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
