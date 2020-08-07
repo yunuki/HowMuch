@@ -20,11 +20,15 @@ class CalendarViewController: UIViewController {
         calendar.scrollDirection = .vertical
     }
     
+    @IBAction func unwindToCalendarVC(segue: UIStoryboardSegue) {
+        
+    }
+    
 }
 
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        self.selectedDate = DM.shared.format(d: date)
+        self.selectedDate = DM.shared.ymdFormat(d: date)
         performSegue(withIdentifier: "expense", sender: nil)
     }
     

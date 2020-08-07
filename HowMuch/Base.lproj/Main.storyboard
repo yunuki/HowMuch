@@ -55,12 +55,23 @@
                                 <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <items>
                                     <navigationItem title="내역" id="8jX-NR-vkK">
-                                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="sV4-zr-g5F"/>
-                                        <barButtonItem key="rightBarButtonItem" title="추가" id="h2d-wu-NZz">
+                                        <barButtonItem key="leftBarButtonItem" title="뒤로" id="sV4-zr-g5F">
                                             <connections>
-                                                <action selector="addButtonTapped:" destination="yIt-4v-cvn" id="bvn-za-9yK"/>
+                                                <segue destination="a3g-dM-b2L" kind="unwind" unwindAction="unwindToCalendarVCWithSegue:" id="VqQ-yu-NhN"/>
                                             </connections>
                                         </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="add" id="h2d-wu-NZz">
+                                                <connections>
+                                                    <action selector="addButtonTapped:" destination="yIt-4v-cvn" id="bvn-za-9yK"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="camera" id="hlg-Ks-l25">
+                                                <connections>
+                                                    <action selector="cameraButtonTapped:" destination="yIt-4v-cvn" id="wZN-aF-gMS"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -68,13 +79,46 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="expense" id="z3S-IV-Hgt">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="expense" rowHeight="70" id="z3S-IV-Hgt" customClass="ExpenseTableViewCell" customModule="HowMuch" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z3S-IV-Hgt" id="Zej-Hq-RQy">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y0K-nW-l7l">
+                                                    <rect key="frame" x="20" y="11" width="50.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCh-KN-YoP">
+                                                    <rect key="frame" x="20" y="39" width="42" height="20"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0T8-MG-5xZ">
+                                                    <rect key="frame" x="343.5" y="11" width="50.5" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="0T8-MG-5xZ" firstAttribute="top" secondItem="Zej-Hq-RQy" secondAttribute="topMargin" id="2bD-Si-G8f"/>
+                                                <constraint firstItem="eCh-KN-YoP" firstAttribute="leading" secondItem="Zej-Hq-RQy" secondAttribute="leadingMargin" id="e7b-ha-Bov"/>
+                                                <constraint firstItem="Y0K-nW-l7l" firstAttribute="top" secondItem="Zej-Hq-RQy" secondAttribute="topMargin" id="n4y-14-YTr"/>
+                                                <constraint firstItem="eCh-KN-YoP" firstAttribute="bottom" secondItem="Zej-Hq-RQy" secondAttribute="bottomMargin" id="tj2-YX-ktn"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0T8-MG-5xZ" secondAttribute="trailing" id="uc5-NW-XqL"/>
+                                                <constraint firstItem="Y0K-nW-l7l" firstAttribute="leading" secondItem="Zej-Hq-RQy" secondAttribute="leadingMargin" id="zCg-E1-2QF"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="descLabel" destination="Y0K-nW-l7l" id="QQT-dx-Kjg"/>
+                                            <outlet property="priceLabel" destination="0T8-MG-5xZ" id="Gue-Zh-tuH"/>
+                                            <outlet property="timeLabel" destination="eCh-KN-YoP" id="Cbw-az-UFH"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -102,6 +146,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1az-oh-uef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="a3g-dM-b2L" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2128.985507246377" y="-72.321428571428569"/>
         </scene>
