@@ -25,6 +25,7 @@ class DM {
         return df
     }
     
+    
     func ymdFormat(d: Date) -> Int {
         return Int(self.ymdDF.string(from: d))!
     }

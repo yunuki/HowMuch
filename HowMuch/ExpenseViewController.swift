@@ -20,18 +20,29 @@ class ExpenseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        updateUI()
         self.expenses = realm.objects(Expense.self).filter { (ex) -> Bool in
             return (ex.id / 100) == self.selectedDate
         }
         expenses = self.expenses.sorted(by: {$0.id < $1.id})
         self.expenseTableView.reloadData()
     }
+    
+    func updateUI() {
+        expenseTableView.rowHeight = 70
+        print(self.selectedDate)
+        self.title = "\(self.selectedDate/100%100)월\(self.selectedDate%100)일"
+    }
 
     
     @IBAction func addButtonTapped(_ sender: Any) {
-        let addAlert = UIAlertController(title: "추가", message: nil, preferredStyle: .alert)
+        let addAlert = UIAlertController(title: "추가", message: "\n\n", preferredStyle: .alert)
+        let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
+        plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
+        
+        addAlert.view.addSubview(plusMinusSegment)
         let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
-            if let strPrice = addAlert.textFields![0].text {
+            if let strPrice = addAlert.textFields![1].text {
                 if let price = Int(strPrice) {
                     let newExpense = Expense()
                     if let lastOrder = self.expenses.max(by: {$0.id < $1.id}) {
@@ -39,8 +50,8 @@ class ExpenseViewController: UIViewController {
                     } else {
                         newExpense.id = Int32(self.selectedDate * 100)
                     }
-                    newExpense.price = Int32(price)
-                    newExpense.desc = addAlert.textFields![1].text ?? ""
+                    newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
+                    newExpense.desc = addAlert.textFields![0].text ?? ""
                     newExpense.time = DM.shared.hmFormat(d: Date())
                     try! self.realm.write {
                         self.realm.add(newExpense)
@@ -55,11 +66,12 @@ class ExpenseViewController: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         addAlert.addAction(cancel)
         addAlert.addAction(ok)
-        addAlert.addTextField { (priceTextField) in
-            priceTextField.placeholder = "금액을 입력하세요"
-        }
         addAlert.addTextField { (descTextField) in
-            descTextField.placeholder = "사용처를 입력하세요"
+            descTextField.placeholder = "항목을 입력하세요"
+        }
+        addAlert.addTextField { (priceTextField) in
+            priceTextField.keyboardType = .numberPad
+            priceTextField.placeholder = "금액을 입력하세요"
         }
         self.present(addAlert, animated: true, completion: nil)
         
@@ -100,8 +112,5 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
-    }
     
 }
