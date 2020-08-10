@@ -16,10 +16,13 @@ class CalendarViewController: UIViewController {
     let realm = try! Realm()
     
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var statisticStackView: UIStackView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCalendar()
+        statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0)})
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,8 +33,11 @@ class CalendarViewController: UIViewController {
         calendar.scrollDirection = .vertical
         calendar.locale = Locale(identifier: "ko_KR")
         calendar.appearance.headerDateFormat = "YYYY년 M월"
-        calendar.appearance.subtitleFont = UIFont(name: "system", size: 17)
-        calendar.appearance.todayColor = .purple
+        calendar.appearance.subtitleFont = UIFont.systemFont(ofSize: 12)
+        calendar.appearance.todayColor = .clear
+        calendar.appearance.titleTodayColor = .black
+        calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "cell")
+        DesignHelper.shared.setBackgroundColorAndShadow(view: calendar)
     }
     
     @IBAction func unwindToCalendarVC(segue: UIStoryboardSegue) {
@@ -48,18 +54,20 @@ class CalendarViewController: UIViewController {
     
 }
 
-extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
+extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         calendar.deselect(date)
         self.selectedDate = DM.shared.ymdFormat(d: date)
         performSegue(withIdentifier: "expense", sender: nil)
     }
     
+    
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         let filteredEx = realm.objects(Expense.self).filter({($0.id/100) == DM.shared.ymdFormat(d: date)})
         let sumOfPrice = filteredEx.reduce(0) { (result: Int32, element: Expense) -> Int32 in
             return result + element.price
         }
+        
         if sumOfPrice > 0 {
             return "💰"
         } else if sumOfPrice < 0{
@@ -67,10 +75,9 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource {
         } else {
             return ""
         }
+
     }
+ 
     
-    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
-        return realm.objects(Expense.self).filter({$0.id/100 == DM.shared.ymdFormat(d: date)}).count > 0 ? 1 : 0
-    }
     
 }

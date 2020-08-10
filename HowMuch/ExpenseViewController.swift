@@ -30,7 +30,6 @@ class ExpenseViewController: UIViewController {
     
     func updateUI() {
         expenseTableView.rowHeight = 70
-        print(self.selectedDate)
         self.title = "\(self.selectedDate/100%100)월\(self.selectedDate%100)일"
     }
 
@@ -89,9 +88,11 @@ extension ExpenseViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "expense", for: indexPath) as! ExpenseTableViewCell
+        let nf = NumberFormatter()
+        nf.numberStyle = .decimal
         cell.descLabel.text = self.expenses[indexPath.row].desc
         cell.timeLabel.text = self.expenses[indexPath.row].time
-        cell.priceLabel.text = "\(self.expenses[indexPath.row].price)원"
+        cell.priceLabel.text = nf.string(from: NSNumber(value: self.expenses[indexPath.row].price))! + "원"
         return cell
     }
     
