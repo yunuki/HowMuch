@@ -13,5 +13,5 @@ class Expense: Object {
     @objc dynamic var id: Int32 = 0
     @objc dynamic var price: Int32 = 0
     @objc dynamic var desc: String = ""
-    @objc dynamic var time: String = ""
+    @objc dynamic var time: Date = Date()
 }

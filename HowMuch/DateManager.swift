@@ -14,14 +14,18 @@ class DM {
     private var ymdDF: DateFormatter {
         let df = DateFormatter()
         df.dateFormat = "yyMMdd"
-        df.locale = Locale(identifier: "ko")
         return df
     }
     
     private var hmDF: DateFormatter {
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
-        df.locale = Locale(identifier: "ko")
+        return df
+    }
+    
+    private var ymDF: DateFormatter {
+        let df = DateFormatter()
+        df.dateFormat = "yyMM"
         return df
     }
     
@@ -32,6 +36,10 @@ class DM {
     
     func hmFormat(d: Date) -> String{
         return self.hmDF.string(from: d)
+    }
+    
+    func ymFormat(d: Date) -> Int {
+        return Int(self.ymDF.string(from: d))!
     }
     
 }

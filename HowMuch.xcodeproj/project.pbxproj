@@ -15,9 +15,10 @@
 		64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF124DBF88E00BD6136 /* Model.swift */; };
 		64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF324DBFBB300BD6136 /* DateManager.swift */; };
 		64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */; };
-		64A6FE0824DC6D8200BD6136 /* ExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */; };
+		64A6FE0824DC6D8200BD6136 /* DayTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */; };
 		64A6FE0A24DD558200BD6136 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */; };
 		64A6FE0E24E1A46100BD6136 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */; };
+		64A6FE1024E2CFD600BD6136 /* MonthTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */; };
 		69C4B01294B8B543D528F50A /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,9 +35,10 @@
 		64A6FDF124DBF88E00BD6136 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		64A6FDF324DBFBB300BD6136 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseViewController.swift; sourceTree = "<group>"; };
+		64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTotalViewController.swift; sourceTree = "<group>"; };
 		64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
+		64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTotalViewController.swift; sourceTree = "<group>"; };
 		91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.release.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -86,7 +88,8 @@
 				64A6FDF324DBFBB300BD6136 /* DateManager.swift */,
 				64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */,
 				64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */,
-				64A6FE0724DC6D8200BD6136 /* ExpenseViewController.swift */,
+				64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */,
+				64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */,
 				64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */,
 				64A6FDF124DBF88E00BD6136 /* Model.swift */,
 				64A6FDE324DBF55500BD6136 /* Main.storyboard */,
@@ -224,10 +227,11 @@
 				64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */,
 				64A6FDDE24DBF55500BD6136 /* AppDelegate.swift in Sources */,
 				64A6FE0A24DD558200BD6136 /* ExpenseTableViewCell.swift in Sources */,
+				64A6FE1024E2CFD600BD6136 /* MonthTotalViewController.swift in Sources */,
 				64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */,
 				64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */,
 				64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */,
-				64A6FE0824DC6D8200BD6136 /* ExpenseViewController.swift in Sources */,
+				64A6FE0824DC6D8200BD6136 /* DayTotalViewController.swift in Sources */,
 				64A6FE0E24E1A46100BD6136 /* DesignHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
