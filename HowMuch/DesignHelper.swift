@@ -11,8 +11,8 @@ import UIKit
 class DesignHelper {
     static let shared = DesignHelper()
     
-    func setBackgroundColorAndShadow(view: UIView) {
-        view.backgroundColor = UIColor(red: 237/255, green: 245/255, blue: 255/255, alpha: 0.8)
+    func setBackgroundColorAndShadow(view: UIView, r: CGFloat, g: CGFloat, b: CGFloat, alpha: CGFloat) {
+        view.backgroundColor = UIColor(red: r, green: g, blue: b, alpha: alpha)
         view.layer.cornerRadius = 10
         view.layer.shadowColor = UIColor.lightGray.cgColor
         view.layer.shadowOffset = CGSize(width: 0, height: 1.0)

@@ -23,7 +23,7 @@ class CalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCalendar()
-        statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0)})
+        statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0, r: 0.999, g: 0.999, b: 0.999, alpha: 0.8)})
         setDayTotal(date: calendar.today!)
         setMonthTotal(date: calendar.today!)
     }
@@ -44,7 +44,7 @@ class CalendarViewController: UIViewController {
         calendar.appearance.borderRadius = 0.3
         calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "cell")
         calendar.select(calendar.today!, scrollToDate: false)
-        DesignHelper.shared.setBackgroundColorAndShadow(view: calendar)
+        DesignHelper.shared.setBackgroundColorAndShadow(view: calendar, r: 0.999, g: 0.999, b: 0.999, alpha: 0.8)
         
     }
     
