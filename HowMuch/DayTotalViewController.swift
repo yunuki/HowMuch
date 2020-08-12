@@ -34,7 +34,7 @@ class DayTotalViewController: UIViewController {
         let addAlert = UIAlertController(title: "추가", message: "\n\n", preferredStyle: .alert)
         let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
         plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
-        
+        plusMinusSegment.selectedSegmentIndex = 1
         addAlert.view.addSubview(plusMinusSegment)
         let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
             if let strPrice = addAlert.textFields![1].text {
@@ -53,7 +53,9 @@ class DayTotalViewController: UIViewController {
                     self.dayTotalEx.append(newExpense)
                     self.expenseTableView.reloadData()
                 } else { //문자입력 에러처리
-                    print("숫자를 입력하세요!")
+                    let errorAlert = UIAlertController(title: "에러", message: "숫자를 입력하세요", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(errorAlert, animated: true, completion: nil)
                 }
             }
         }
@@ -71,9 +73,7 @@ class DayTotalViewController: UIViewController {
         
     }
     @IBAction func cameraButtonTapped(_ sender: Any) {
-        try! realm.write {
-            realm.deleteAll()
-        }
+        
     }
     
 }
@@ -95,7 +95,39 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        print(self.dayTotalEx[indexPath.row])
+        let editAlert = UIAlertController(title: "수정", message: "\n\n", preferredStyle: .alert)
+        let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
+        plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
+        plusMinusSegment.selectedSegmentIndex = 1
+        editAlert.view.addSubview(plusMinusSegment)
+        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
+            if let strPrice = editAlert.textFields![1].text {
+                if let price = Int(strPrice) {
+                    try! self.realm.write {
+                        self.dayTotalEx[indexPath.row].desc = editAlert.textFields![0].text ?? ""
+                        self.dayTotalEx[indexPath.row].price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
+                        self.realm.add(self.dayTotalEx[indexPath.row], update: .modified)
+                    }
+                    self.expenseTableView.reloadData()
+                } else { //문자입력 에러처리
+                    let errorAlert = UIAlertController(title: "에러", message: "숫자를 입력하세요", preferredStyle: .alert)
+                    errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                    self.present(errorAlert, animated: true, completion: nil)
+                }
+            }
+        }
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        editAlert.addAction(cancel)
+        editAlert.addAction(ok)
+        editAlert.addTextField { (descTextField) in
+            descTextField.text = self.dayTotalEx[indexPath.row].desc
+        }
+        editAlert.addTextField { (priceTextField) in
+            priceTextField.keyboardType = .numberPad
+            priceTextField.text = "\(self.dayTotalEx[indexPath.row].price > 0 ? self.dayTotalEx[indexPath.row].price : self.dayTotalEx[indexPath.row].price * -1)"
+        }
+        self.present(editAlert, animated: true, completion: nil)
+        
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

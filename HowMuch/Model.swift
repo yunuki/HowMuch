@@ -14,4 +14,8 @@ class Expense: Object {
     @objc dynamic var price: Int32 = 0
     @objc dynamic var desc: String = ""
     @objc dynamic var time: Date = Date()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }
