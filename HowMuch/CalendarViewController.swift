@@ -25,12 +25,13 @@ class CalendarViewController: UIViewController {
         setupCalendar()
         statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0)})
         setDayTotal(date: calendar.today!)
+        setMonthTotal(date: calendar.today!)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.calendar.reloadData()
         setDayTotal(date: calendar.selectedDate!)
-        setMonthTotal(date: calendar.today!)
+        setMonthTotal(date: calendar.currentPage)
     }
     
     func setupCalendar() {
