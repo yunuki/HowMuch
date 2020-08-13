@@ -19,4 +19,11 @@ class DesignHelper {
         view.layer.shadowOpacity = 0.4
         view.layer.shadowRadius = 4
     }
+    
+    func setShadowToLabel(view: UILabel) {
+        view.layer.shadowColor = UIColor.lightGray.cgColor
+        view.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        view.layer.shadowOpacity = 0.4
+        view.layer.shadowRadius = 4
+    }
 }

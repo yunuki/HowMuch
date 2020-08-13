@@ -18,6 +18,8 @@ class CalendarViewController: UIViewController {
     @IBOutlet weak var statisticStackView: UIStackView!
     @IBOutlet weak var dayTotalButton: UIButton!
     @IBOutlet weak var monthTotalButton: UIButton!
+    @IBOutlet weak var monthTotalLabel: UILabel!
+    @IBOutlet weak var dayTotalLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -26,6 +28,7 @@ class CalendarViewController: UIViewController {
         statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0, r: 0.999, g: 0.999, b: 0.999, alpha: 0.8)})
         setDayTotal(date: calendar.today!)
         setMonthTotal(date: calendar.today!)
+        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,12 +40,14 @@ class CalendarViewController: UIViewController {
     func setupCalendar() {
         calendar.scrollDirection = .vertical
         calendar.locale = Locale(identifier: "ko_KR")
+        calendar.appearance.headerTitleColor = UIColor.link
+        calendar.appearance.weekdayTextColor = UIColor.link
+        calendar.appearance.selectionColor = UIColor.link
         calendar.appearance.headerDateFormat = "YYYY년 M월"
         calendar.appearance.subtitleFont = UIFont.systemFont(ofSize: 17)
         calendar.appearance.todayColor = .clear
         calendar.appearance.titleTodayColor = .black
         calendar.appearance.borderRadius = 0.3
-        calendar.register(FSCalendarCell.self, forCellReuseIdentifier: "cell")
         calendar.select(calendar.today!, scrollToDate: false)
         DesignHelper.shared.setBackgroundColorAndShadow(view: calendar, r: 0.999, g: 0.999, b: 0.999, alpha: 0.8)
         
@@ -54,6 +59,7 @@ class CalendarViewController: UIViewController {
     
     
     func setDayTotal(date: Date) {
+        DesignHelper.shared.setShadowToLabel(view: self.dayTotalLabel)
         let filteredEx = realm.objects(Expense.self).filter({$0.id/100 == DM.shared.ymdFormat(d: date)})
         if filteredEx.count == 0 {
             self.dayTotalButton.setTitle("내역 추가", for: .normal)
@@ -70,6 +76,7 @@ class CalendarViewController: UIViewController {
     }
     
     func setMonthTotal(date: Date) {
+        DesignHelper.shared.setShadowToLabel(view: self.monthTotalLabel)
         let filteredEx = realm.objects(Expense.self).filter({$0.id/10000 == DM.shared.ymFormat(d: date)})
         if filteredEx.count == 0 {
             self.monthTotalButton.setTitle("내역 없음", for: .normal)

@@ -82,5 +82,6 @@ extension MonthTotalViewController: UISearchControllerDelegate, UISearchBarDeleg
         self.searchController.searchBar.delegate = self
         self.searchController.searchResultsUpdater = self
         self.definesPresentationContext = true
+        self.searchController.obscuresBackgroundDuringPresentation = false
     }
 }

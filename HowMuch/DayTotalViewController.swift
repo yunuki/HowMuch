@@ -14,24 +14,31 @@ class DayTotalViewController: UIViewController {
     var selectedDate: Int = 0
     var dayTotalEx: [Expense] = []
     let realm = try! Realm()
-    @IBOutlet weak var expenseTableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         updateUI()
-        self.expenseTableView.reloadData()
+        self.tableView.reloadData()
     }
     
     func updateUI() {
-        expenseTableView.rowHeight = 70
+        tableView.rowHeight = 70
         self.title = "\(self.selectedDate/100%100)월\(self.selectedDate%100)일"
     }
 
     
     @IBAction func addButtonTapped(_ sender: Any) {
         let addAlert = UIAlertController(title: "추가", message: "\n\n", preferredStyle: .alert)
+        addAlert.addTextField { (descTextField) in
+            descTextField.placeholder = "항목을 입력하세요"
+        }
+        addAlert.addTextField { (priceTextField) in
+            priceTextField.keyboardType = .numberPad
+            priceTextField.placeholder = "금액을 입력하세요"
+        }
         let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
         plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
         plusMinusSegment.selectedSegmentIndex = 1
@@ -41,17 +48,30 @@ class DayTotalViewController: UIViewController {
                 if let price = Int(strPrice) {
                     let newExpense = Expense()
                     if let lastOrder = self.dayTotalEx.max(by: {$0.id < $1.id}) {
-                        newExpense.id = lastOrder.id+1
+                        if lastOrder.id % 100 != 99 {
+                            newExpense.id = lastOrder.id+1
+                            newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
+                            newExpense.desc = addAlert.textFields![0].text ?? ""
+                            try! self.realm.write {
+                                self.realm.add(newExpense)
+                            }
+                            self.dayTotalEx.append(newExpense)
+                            self.tableView.reloadData()
+                        } else { //최대 내역 초과 에러처리
+                            let errorAlert = UIAlertController(title: "에러", message: "더 이상 추가할 수 없습니다", preferredStyle: .alert)
+                            errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
+                            self.present(errorAlert, animated: true, completion: nil)
+                        }
                     } else {
                         newExpense.id = Int32(self.selectedDate * 100)
+                        newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
+                        newExpense.desc = addAlert.textFields![0].text ?? ""
+                        try! self.realm.write {
+                            self.realm.add(newExpense)
+                        }
+                        self.dayTotalEx.append(newExpense)
+                        self.tableView.reloadData()
                     }
-                    newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
-                    newExpense.desc = addAlert.textFields![0].text ?? ""
-                    try! self.realm.write {
-                        self.realm.add(newExpense)
-                    }
-                    self.dayTotalEx.append(newExpense)
-                    self.expenseTableView.reloadData()
                 } else { //문자입력 에러처리
                     let errorAlert = UIAlertController(title: "에러", message: "숫자를 입력하세요", preferredStyle: .alert)
                     errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -62,13 +82,6 @@ class DayTotalViewController: UIViewController {
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         addAlert.addAction(cancel)
         addAlert.addAction(ok)
-        addAlert.addTextField { (descTextField) in
-            descTextField.placeholder = "항목을 입력하세요"
-        }
-        addAlert.addTextField { (priceTextField) in
-            priceTextField.keyboardType = .numberPad
-            priceTextField.placeholder = "금액을 입력하세요"
-        }
         self.present(addAlert, animated: true, completion: nil)
         
     }
@@ -96,6 +109,13 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let editAlert = UIAlertController(title: "수정", message: "\n\n", preferredStyle: .alert)
+        editAlert.addTextField { (descTextField) in
+            descTextField.text = self.dayTotalEx[indexPath.row].desc
+        }
+        editAlert.addTextField { (priceTextField) in
+            priceTextField.keyboardType = .numberPad
+            priceTextField.text = "\(self.dayTotalEx[indexPath.row].price > 0 ? self.dayTotalEx[indexPath.row].price : self.dayTotalEx[indexPath.row].price * -1)"
+        }
         let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
         plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
         plusMinusSegment.selectedSegmentIndex = 1
@@ -108,7 +128,7 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
                         self.dayTotalEx[indexPath.row].price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
                         self.realm.add(self.dayTotalEx[indexPath.row], update: .modified)
                     }
-                    self.expenseTableView.reloadData()
+                    self.tableView.reloadData()
                 } else { //문자입력 에러처리
                     let errorAlert = UIAlertController(title: "에러", message: "숫자를 입력하세요", preferredStyle: .alert)
                     errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
@@ -119,13 +139,6 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
         let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
         editAlert.addAction(cancel)
         editAlert.addAction(ok)
-        editAlert.addTextField { (descTextField) in
-            descTextField.text = self.dayTotalEx[indexPath.row].desc
-        }
-        editAlert.addTextField { (priceTextField) in
-            priceTextField.keyboardType = .numberPad
-            priceTextField.text = "\(self.dayTotalEx[indexPath.row].price > 0 ? self.dayTotalEx[indexPath.row].price : self.dayTotalEx[indexPath.row].price * -1)"
-        }
         self.present(editAlert, animated: true, completion: nil)
         
     }

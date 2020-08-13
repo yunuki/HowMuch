@@ -26,37 +26,53 @@
                                     <outlet property="delegate" destination="xI7-mP-JdL" id="twd-ZM-lo0"/>
                                 </connections>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="BgR-P5-jO4">
+                                <rect key="frame" x="20" y="564" width="374" height="21.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Monthly Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21A-BZ-mCw">
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily Total" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bk7-Dq-yoG">
+                                        <rect key="frame" x="192" y="0.0" width="182" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="0.0" height="1"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bWI-Pi-1si">
-                                <rect key="frame" x="20" y="614" width="374" height="198"/>
+                                <rect key="frame" x="20" y="590.5" width="374" height="221.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8qk-Bf-C9j">
-                                        <rect key="frame" x="0.0" y="0.0" width="118" height="198"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="182" height="221.5"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="monthTotalButtonTapped:" destination="xI7-mP-JdL" eventType="touchUpInside" id="LNU-00-mbb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lct-Jq-4Em">
-                                        <rect key="frame" x="128" y="0.0" width="118" height="198"/>
+                                        <rect key="frame" x="192" y="0.0" width="182" height="221.5"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="dayTotalButtonTapped:" destination="xI7-mP-JdL" eventType="touchUpInside" id="L2c-Ui-06K"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mha-Yw-fRo">
-                                        <rect key="frame" x="256" y="0.0" width="118" height="198"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="BgR-P5-jO4" firstAttribute="leading" secondItem="AUT-wn-VJK" secondAttribute="leading" constant="20" id="0OZ-Xc-Y9Y"/>
                             <constraint firstItem="NH1-k1-H0N" firstAttribute="top" secondItem="AUT-wn-VJK" secondAttribute="top" constant="20" id="823-30-qPV"/>
+                            <constraint firstItem="AUT-wn-VJK" firstAttribute="trailing" secondItem="BgR-P5-jO4" secondAttribute="trailing" constant="20" id="8HY-ZG-aCK"/>
                             <constraint firstItem="NH1-k1-H0N" firstAttribute="leading" secondItem="AUT-wn-VJK" secondAttribute="leading" constant="20" id="Juy-Ee-jlN"/>
-                            <constraint firstItem="bWI-Pi-1si" firstAttribute="top" secondItem="NH1-k1-H0N" secondAttribute="bottom" constant="70" id="RWq-2o-5HN"/>
+                            <constraint firstItem="BgR-P5-jO4" firstAttribute="top" secondItem="NH1-k1-H0N" secondAttribute="bottom" constant="20" id="Kes-uL-V1o"/>
+                            <constraint firstItem="bWI-Pi-1si" firstAttribute="top" secondItem="BgR-P5-jO4" secondAttribute="bottom" constant="5" id="OmP-EN-Akz"/>
                             <constraint firstItem="bWI-Pi-1si" firstAttribute="leading" secondItem="AUT-wn-VJK" secondAttribute="leading" constant="20" id="V52-CH-jmT"/>
                             <constraint firstItem="AUT-wn-VJK" firstAttribute="trailing" secondItem="bWI-Pi-1si" secondAttribute="trailing" constant="20" id="Vkx-MR-Kw7"/>
                             <constraint firstItem="AUT-wn-VJK" firstAttribute="trailing" secondItem="NH1-k1-H0N" secondAttribute="trailing" constant="20" id="i5g-tz-sgr"/>
@@ -79,7 +95,9 @@
                     <connections>
                         <outlet property="calendar" destination="NH1-k1-H0N" id="far-dR-FLr"/>
                         <outlet property="dayTotalButton" destination="lct-Jq-4Em" id="O20-au-cto"/>
+                        <outlet property="dayTotalLabel" destination="Bk7-Dq-yoG" id="bKn-fV-l9q"/>
                         <outlet property="monthTotalButton" destination="8qk-Bf-C9j" id="E94-el-Now"/>
+                        <outlet property="monthTotalLabel" destination="21A-BZ-mCw" id="CKN-We-7Di"/>
                         <outlet property="statisticStackView" destination="bWI-Pi-1si" id="oMf-0o-9sO"/>
                         <segue destination="wWl-El-jbE" kind="presentation" identifier="dayTotal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="dFa-wn-ALE"/>
                         <segue destination="D0I-EI-DM2" kind="presentation" identifier="monthTotal" modalPresentationStyle="fullScreen" modalTransitionStyle="coverVertical" id="AQb-ex-P1J"/>
@@ -182,7 +200,7 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
-                        <outlet property="expenseTableView" destination="p3J-ws-vc9" id="5MH-Ab-aPd"/>
+                        <outlet property="tableView" destination="p3J-ws-vc9" id="5MH-Ab-aPd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1az-oh-uef" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
