@@ -29,7 +29,7 @@ class DayTotalViewController: UIViewController {
         self.title = "\(self.selectedDate/100%100)월\(self.selectedDate%100)일"
     }
 
-    
+    //내역 추가
     @IBAction func addButtonTapped(_ sender: Any) {
         let addAlert = UIAlertController(title: "추가", message: "\n\n", preferredStyle: .alert)
         addAlert.addTextField { (descTextField) in
@@ -91,6 +91,7 @@ class DayTotalViewController: UIViewController {
     
 }
 
+//UITableViewDelegate, UITableViewDataSource 메소드 구현
 extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.dayTotalEx.count
@@ -105,7 +106,7 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
         cell.priceLabel.text = nf.string(from: NSNumber(value: self.dayTotalEx[indexPath.row].price))! + "원"
         return cell
     }
-    
+    //cell이 선택되었을 때 호출되는 Delegate 메소드 -> 내역 수정
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let editAlert = UIAlertController(title: "수정", message: "\n\n", preferredStyle: .alert)
@@ -142,7 +143,7 @@ extension DayTotalViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(editAlert, animated: true, completion: nil)
         
     }
-    
+    //cell을 삭제하는 DataSource 메소드 -> 내역 삭제
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let deletedExpenseId = self.dayTotalEx[indexPath.row].id

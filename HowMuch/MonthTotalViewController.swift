@@ -37,6 +37,7 @@ class MonthTotalViewController: UIViewController {
 
 }
 
+//UITableViewDelegate, UITableViewDataSource 메소드 구현
 extension MonthTotalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.searchController.isActive ? self.filteredMonthTotalEx.count : self.monthTotalEx.count
@@ -65,8 +66,9 @@ extension MonthTotalViewController: UITableViewDelegate, UITableViewDataSource {
     
     
 }
-
+//검색 기능 관련 Delegate 메소드 구현
 extension MonthTotalViewController: UISearchControllerDelegate, UISearchBarDelegate, UISearchResultsUpdating {
+    //SearchBar에 입력된 텍스트를 포함하는 결과를 TableView에 보이도록
     func updateSearchResults(for searchController: UISearchController) {
         if let text = searchController.searchBar.text {
             filteredMonthTotalEx = monthTotalEx.filter { (ex) -> Bool in
@@ -75,7 +77,7 @@ extension MonthTotalViewController: UISearchControllerDelegate, UISearchBarDeleg
             self.tableView.reloadData()
         }
     }
-    
+    //검색 기능 설정
     func setUpSearch() {
         tableView.tableHeaderView = searchController.searchBar
         self.searchController.delegate = self

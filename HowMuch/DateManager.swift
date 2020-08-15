@@ -11,35 +11,21 @@ import Foundation
 class DM {
     static let shared = DM()
     
-    private var ymdDF: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "yyMMdd"
-        return df
-    }
-    
-    private var hmDF: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "HH:mm"
-        return df
-    }
-    
-    private var ymDF: DateFormatter {
-        let df = DateFormatter()
-        df.dateFormat = "yyMM"
-        return df
-    }
-    
+    private let df = DateFormatter()
     
     func ymdFormat(d: Date) -> Int {
-        return Int(self.ymdDF.string(from: d))!
+        self.df.dateFormat = "yyMMdd"
+        return Int(self.df.string(from: d))!
     }
     
     func hmFormat(d: Date) -> String{
-        return self.hmDF.string(from: d)
+        self.df.dateFormat = "HH:mm"
+        return self.df.string(from: d)
     }
     
     func ymFormat(d: Date) -> Int {
-        return Int(self.ymDF.string(from: d))!
+        self.df.dateFormat = "yyMM"
+        return Int(self.df.string(from: d))!
     }
     
 }

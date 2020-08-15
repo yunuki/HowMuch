@@ -28,7 +28,6 @@ class CalendarViewController: UIViewController {
         statisticStackView.subviews.forEach({DesignHelper.shared.setBackgroundColorAndShadow(view: $0, r: 0.999, g: 0.999, b: 0.999, alpha: 0.8)})
         setDayTotal(date: calendar.today!)
         setMonthTotal(date: calendar.today!)
-        print(Realm.Configuration.defaultConfiguration.fileURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +36,7 @@ class CalendarViewController: UIViewController {
         setMonthTotal(date: calendar.currentPage)
     }
     
+    //달력 설정
     func setupCalendar() {
         calendar.scrollDirection = .vertical
         calendar.locale = Locale(identifier: "ko_KR")
@@ -57,7 +57,7 @@ class CalendarViewController: UIViewController {
         
     }
     
-    
+    //일별 내역 총계 설정
     func setDayTotal(date: Date) {
         DesignHelper.shared.setShadowToLabel(view: self.dayTotalLabel)
         let filteredEx = realm.objects(Expense.self).filter({$0.id/100 == DM.shared.ymdFormat(d: date)})
@@ -75,6 +75,7 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    //월별 내역 총계 설정
     func setMonthTotal(date: Date) {
         DesignHelper.shared.setShadowToLabel(view: self.monthTotalLabel)
         let filteredEx = realm.objects(Expense.self).filter({$0.id/10000 == DM.shared.ymFormat(d: date)})
@@ -92,6 +93,7 @@ class CalendarViewController: UIViewController {
         }
     }
     
+    //prepare segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "dayTotal" {
             if let nc = segue.destination as? UINavigationController, let vc = nc.topViewController as? DayTotalViewController {
@@ -116,12 +118,14 @@ class CalendarViewController: UIViewController {
     }
 }
 
+//FSCalendarDelegate, FSCalendarDataSource 메소드 구현
 extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    //날짜 선택시 호출되는 Delegate 메소드
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
         setDayTotal(date: date)
     }
     
-    
+    //subtitle을 설정하는 DataSource 메소드
     func calendar(_ calendar: FSCalendar, subtitleFor date: Date) -> String? {
         let filteredEx = realm.objects(Expense.self).filter({($0.id/100) == DM.shared.ymdFormat(d: date)})
         let sumOfPrice = filteredEx.reduce(0) { (result: Int32, element: Expense) -> Int32 in
@@ -138,6 +142,7 @@ extension CalendarViewController: FSCalendarDelegate, FSCalendarDataSource, FSCa
 
     }
  
+    //달력의 장이 바뀔 때 호출되는 Delegate 메소드
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         setMonthTotal(date: calendar.currentPage)
     }
