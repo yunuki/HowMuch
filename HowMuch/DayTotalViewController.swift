@@ -85,9 +85,7 @@ class DayTotalViewController: UIViewController {
         self.present(addAlert, animated: true, completion: nil)
         
     }
-    @IBAction func cameraButtonTapped(_ sender: Any) {
-        
-    }
+
     
 }
 

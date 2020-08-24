@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xI7-mP-JdL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XqR-Ys-cAt">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -10,7 +10,7 @@
         <!--Calendar View Controller-->
         <scene sceneID="uYk-FG-iGg">
             <objects>
-                <viewController id="xI7-mP-JdL" customClass="CalendarViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CalendarViewController" id="xI7-mP-JdL" customClass="CalendarViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dRL-KF-st0">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -186,18 +186,11 @@
                                 <segue destination="a3g-dM-b2L" kind="unwind" unwindAction="unwindToCalendarVCWithSegue:" id="XCj-Rd-obX"/>
                             </connections>
                         </barButtonItem>
-                        <rightBarButtonItems>
-                            <barButtonItem systemItem="add" id="KIQ-el-a6r">
-                                <connections>
-                                    <action selector="addButtonTapped:" destination="yIt-4v-cvn" id="ifF-OI-5VB"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem systemItem="camera" id="xhe-nh-eSH">
-                                <connections>
-                                    <action selector="cameraButtonTapped:" destination="yIt-4v-cvn" id="xRd-2Z-Jyh"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KIQ-el-a6r">
+                            <connections>
+                                <action selector="addButtonTapped:" destination="yIt-4v-cvn" id="ifF-OI-5VB"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="p3J-ws-vc9" id="5MH-Ab-aPd"/>
@@ -333,6 +326,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gTi-Tw-mGT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3039" y="637"/>
+        </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="0xl-zD-73w">
+            <objects>
+                <viewController id="XqR-Ys-cAt" customClass="WelcomeViewController" customModule="HowMuch" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="i3u-5r-Pn7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="psv-Vj-zQt"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0Kp-U8-c6T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1062" y="267"/>
         </scene>
     </scenes>
     <resources>
