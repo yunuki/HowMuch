@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F46F85BA3FBCA9BE424DFDA /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D12CCDFCE2E18AB78FE1440 /* Pods_HowMuch.framework */; };
 		64A6FDDE24DBF55500BD6136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDDD24DBF55500BD6136 /* AppDelegate.swift */; };
 		64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */; };
 		64A6FDE524DBF55500BD6136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A6FDE324DBF55500BD6136 /* Main.storyboard */; };
@@ -15,16 +16,14 @@
 		64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF124DBF88E00BD6136 /* Model.swift */; };
 		64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDF324DBFBB300BD6136 /* DateManager.swift */; };
 		64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */; };
-		64A6FE0824DC6D8200BD6136 /* DayTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */; };
 		64A6FE0A24DD558200BD6136 /* ExpenseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */; };
 		64A6FE0E24E1A46100BD6136 /* DesignHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */; };
 		64A6FE1024E2CFD600BD6136 /* MonthTotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */; };
-		69C4B01294B8B543D528F50A /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowMuch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		19FFCF5EAF82B67846BF5E41 /* Pods-HowMuch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.debug.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.debug.xcconfig"; sourceTree = "<group>"; };
+		1D12CCDFCE2E18AB78FE1440 /* Pods_HowMuch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowMuch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2DAC75CA9056E1EE6DAD37D6 /* Pods-HowMuch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.debug.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.debug.xcconfig"; sourceTree = "<group>"; };
 		64A6FDDA24DBF55500BD6136 /* HowMuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowMuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A6FDDD24DBF55500BD6136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,11 +34,10 @@
 		64A6FDF124DBF88E00BD6136 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		64A6FDF324DBFBB300BD6136 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
-		64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTotalViewController.swift; sourceTree = "<group>"; };
 		64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpenseTableViewCell.swift; sourceTree = "<group>"; };
 		64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignHelper.swift; sourceTree = "<group>"; };
 		64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTotalViewController.swift; sourceTree = "<group>"; };
-		91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.release.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.release.xcconfig"; sourceTree = "<group>"; };
+		F9BD6155012193B943617AA8 /* Pods-HowMuch.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.release.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,17 +45,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				69C4B01294B8B543D528F50A /* Pods_HowMuch.framework in Frameworks */,
+				5F46F85BA3FBCA9BE424DFDA /* Pods_HowMuch.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0FD78ACA8F3253304C2F5DA6 /* Frameworks */ = {
+		022D91344D9A1DADD648ED1F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				14E4D045EC66F66D94AC1620 /* Pods_HowMuch.framework */,
+				1D12CCDFCE2E18AB78FE1440 /* Pods_HowMuch.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -68,7 +66,7 @@
 				64A6FDDC24DBF55500BD6136 /* HowMuch */,
 				64A6FDDB24DBF55500BD6136 /* Products */,
 				8AEF08EB742A8EFD97E0106D /* Pods */,
-				0FD78ACA8F3253304C2F5DA6 /* Frameworks */,
+				022D91344D9A1DADD648ED1F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -88,7 +86,6 @@
 				64A6FDF324DBFBB300BD6136 /* DateManager.swift */,
 				64A6FE0D24E1A46100BD6136 /* DesignHelper.swift */,
 				64A6FE0524DC68E400BD6136 /* CalendarViewController.swift */,
-				64A6FE0724DC6D8200BD6136 /* DayTotalViewController.swift */,
 				64A6FE0F24E2CFD600BD6136 /* MonthTotalViewController.swift */,
 				64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */,
 				64A6FDF124DBF88E00BD6136 /* Model.swift */,
@@ -103,8 +100,8 @@
 		8AEF08EB742A8EFD97E0106D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				19FFCF5EAF82B67846BF5E41 /* Pods-HowMuch.debug.xcconfig */,
-				91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */,
+				2DAC75CA9056E1EE6DAD37D6 /* Pods-HowMuch.debug.xcconfig */,
+				F9BD6155012193B943617AA8 /* Pods-HowMuch.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -116,11 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 64A6FDEE24DBF55700BD6136 /* Build configuration list for PBXNativeTarget "HowMuch" */;
 			buildPhases = (
-				6A39993C1F987A8541CC1F14 /* [CP] Check Pods Manifest.lock */,
+				9470CF1FAB194B146D63317B /* [CP] Check Pods Manifest.lock */,
 				64A6FDD624DBF55500BD6136 /* Sources */,
 				64A6FDD724DBF55500BD6136 /* Frameworks */,
 				64A6FDD824DBF55500BD6136 /* Resources */,
-				080B90ECFD388FFA24BB5EC7 /* [CP] Embed Pods Frameworks */,
+				F774A4A6981C1AADDA6C695B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -178,24 +175,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		080B90ECFD388FFA24BB5EC7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6A39993C1F987A8541CC1F14 /* [CP] Check Pods Manifest.lock */ = {
+		9470CF1FAB194B146D63317B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -217,6 +197,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		F774A4A6981C1AADDA6C695B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-HowMuch/Pods-HowMuch-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -231,7 +228,6 @@
 				64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */,
 				64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */,
 				64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */,
-				64A6FE0824DC6D8200BD6136 /* DayTotalViewController.swift in Sources */,
 				64A6FE0E24E1A46100BD6136 /* DesignHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -374,7 +370,7 @@
 		};
 		64A6FDEF24DBF55700BD6136 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 19FFCF5EAF82B67846BF5E41 /* Pods-HowMuch.debug.xcconfig */;
+			baseConfigurationReference = 2DAC75CA9056E1EE6DAD37D6 /* Pods-HowMuch.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -394,7 +390,7 @@
 		};
 		64A6FDF024DBF55700BD6136 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91EC61B304B540C99587D156 /* Pods-HowMuch.release.xcconfig */;
+			baseConfigurationReference = F9BD6155012193B943617AA8 /* Pods-HowMuch.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
