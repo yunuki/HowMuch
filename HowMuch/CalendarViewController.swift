@@ -10,6 +10,11 @@ import UIKit
 import FSCalendar
 import RealmSwift
 
+extension Notification.Name {
+    static let addExpense = Notification.Name("addExpense")
+    static let addRevenue = Notification.Name("addRevenue")
+}
+
 class CalendarViewController: UIViewController {
     
     let realm = try! Realm()
@@ -25,8 +30,25 @@ class CalendarViewController: UIViewController {
         setupCalendar()
         setTableUI()
         setGesture()
+        setNotification()
     }
     
+    func setNotification() {
+        NotificationCenter.default.addObserver(self, selector: #selector(addExpense(_:)), name: .addExpense, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(addRevenue(_:)), name: .addRevenue, object: nil)
+    }
+    
+    @objc func addExpense(_ notification: Notification) {
+        let addExpenseVC = self.storyboard!.instantiateViewController(withIdentifier: "expense") as! AddExpenseViewController
+        addExpenseVC.modalPresentationStyle = .automatic
+        addExpenseVC.selectedDate = self.calendar.selectedDate
+        self.present(addExpenseVC, animated: true, completion: nil)
+    }
+    
+    @objc func addRevenue(_ notification: Notification) {
+        
+    }
+
     func setGesture() {
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(swipeHandler(_:)))
         swipeUp.direction = .up
@@ -81,64 +103,11 @@ class CalendarViewController: UIViewController {
         calendar(self.calendar, didSelect: Date(), at: .current)
     }
     
-    @IBAction func addButtonTapped(_ sender: Any) {
-        let addAlert = UIAlertController(title: "추가", message: "\n\n", preferredStyle: .alert)
-        addAlert.addTextField { (descTextField) in
-            descTextField.placeholder = "항목을 입력하세요"
-        }
-        addAlert.addTextField { (priceTextField) in
-            priceTextField.keyboardType = .numberPad
-            priceTextField.placeholder = "금액을 입력하세요"
-        }
-        let plusMinusSegment = UISegmentedControl(items: ["수입", "지출"])
-        plusMinusSegment.frame = CGRect(x: 85, y: 50, width: 100, height: 40)
-        plusMinusSegment.selectedSegmentIndex = 1
-        addAlert.view.addSubview(plusMinusSegment)
-        let ok = UIAlertAction(title: "확인", style: .default) { (ok) in
-            if let strPrice = addAlert.textFields![1].text {
-                if let price = Int(strPrice) {
-                    let newExpense = Expense()
-                    if let lastOrder = self.expenses.max(by: {$0.id < $1.id}) {
-                        if lastOrder.id % 100 != 99 {
-                            newExpense.id = lastOrder.id+1
-                            newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
-                            newExpense.desc = addAlert.textFields![0].text ?? ""
-                            try! self.realm.write {
-                                self.realm.add(newExpense)
-                            }
-                            self.expenses.append(newExpense)
-                            self.tableView.reloadData()
-                        } else { //최대 내역 초과 에러처리
-                            let errorAlert = UIAlertController(title: "에러", message: "더 이상 추가할 수 없습니다", preferredStyle: .alert)
-                            errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                            self.present(errorAlert, animated: true, completion: nil)
-                        }
-                    } else {
-                        newExpense.id = Int32(DM.shared.ymdFormat(d: self.calendar!.selectedDate!) * 100)
-                        newExpense.price = plusMinusSegment.selectedSegmentIndex == 0 ? Int32(price) : Int32(price) * -1
-                        newExpense.desc = addAlert.textFields![0].text ?? ""
-                        try! self.realm.write {
-                            self.realm.add(newExpense)
-                        }
-                        self.expenses.append(newExpense)
-                        self.tableView.reloadData()
-                    }
-                } else { //문자입력 에러처리
-                    let errorAlert = UIAlertController(title: "에러", message: "숫자를 입력하세요", preferredStyle: .alert)
-                    errorAlert.addAction(UIAlertAction(title: "확인", style: .default, handler: nil))
-                    self.present(errorAlert, animated: true, completion: nil)
-                }
-            }
-            self.calendar.reloadData()
-        }
-        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
-        addAlert.addAction(cancel)
-        addAlert.addAction(ok)
-        self.present(addAlert, animated: true, completion: nil)
-    }
     
     @IBAction func unwindToCalendarVC(segue: UIStoryboardSegue) {
-        
+        self.expenses = realm.objects(Expense.self).filter({$0.id/100 == DM.shared.ymdFormat(d: self.calendar.selectedDate!)})
+        self.tableView.reloadData()
+        self.calendar.reloadData()
     }
 
 }
@@ -188,8 +157,8 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         self.tableView.addGestureRecognizer(swipeRight)
     }
     
-    @objc func handleTableViewSwipe(_ gestureRegocnizer: UISwipeGestureRecognizer) {
-        switch gestureRegocnizer.direction {
+    @objc func handleTableViewSwipe(_ gestureRecognizer: UISwipeGestureRecognizer) {
+        switch gestureRecognizer.direction {
         case .left:
             self.calendar.select(self.calendar.selectedDate?.addingTimeInterval(86400))
             self.calendar(self.calendar, didSelect: self.calendar.selectedDate!, at: .current)
@@ -230,6 +199,7 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         self.calendar.reloadData()
     }
     
+    /*
     //cell이 선택되었을 때 호출되는 Delegate 메소드 -> 내역 수정
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
@@ -268,4 +238,5 @@ extension CalendarViewController: UITableViewDelegate, UITableViewDataSource {
         self.present(editAlert, animated: true, completion: nil)
         
     }
+ */
 }

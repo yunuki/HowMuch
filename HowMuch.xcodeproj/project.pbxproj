@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		5F46F85BA3FBCA9BE424DFDA /* Pods_HowMuch.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D12CCDFCE2E18AB78FE1440 /* Pods_HowMuch.framework */; };
+		64501AFF2561B16D008DFB11 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64501AFE2561B16D008DFB11 /* TabBarController.swift */; };
+		64501B012561B470008DFB11 /* AddExpenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64501B002561B470008DFB11 /* AddExpenseViewController.swift */; };
+		649E2EDC256258B500956B35 /* PlusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649E2EDB256258B500956B35 /* PlusViewController.swift */; };
 		64A6FDDE24DBF55500BD6136 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDDD24DBF55500BD6136 /* AppDelegate.swift */; };
 		64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */; };
 		64A6FDE524DBF55500BD6136 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 64A6FDE324DBF55500BD6136 /* Main.storyboard */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		1D12CCDFCE2E18AB78FE1440 /* Pods_HowMuch.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HowMuch.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DAC75CA9056E1EE6DAD37D6 /* Pods-HowMuch.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HowMuch.debug.xcconfig"; path = "Target Support Files/Pods-HowMuch/Pods-HowMuch.debug.xcconfig"; sourceTree = "<group>"; };
+		64501AFE2561B16D008DFB11 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		64501B002561B470008DFB11 /* AddExpenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseViewController.swift; sourceTree = "<group>"; };
+		649E2EDB256258B500956B35 /* PlusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusViewController.swift; sourceTree = "<group>"; };
 		64A6FDDA24DBF55500BD6136 /* HowMuch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HowMuch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64A6FDDD24DBF55500BD6136 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		64A6FDDF24DBF55500BD6136 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -90,6 +96,9 @@
 				64A6FE0924DD558200BD6136 /* ExpenseTableViewCell.swift */,
 				64A6FDF124DBF88E00BD6136 /* Model.swift */,
 				64A6FDE324DBF55500BD6136 /* Main.storyboard */,
+				649E2EDB256258B500956B35 /* PlusViewController.swift */,
+				64501B002561B470008DFB11 /* AddExpenseViewController.swift */,
+				64501AFE2561B16D008DFB11 /* TabBarController.swift */,
 				64A6FDE624DBF55700BD6136 /* Assets.xcassets */,
 				64A6FDE824DBF55700BD6136 /* LaunchScreen.storyboard */,
 				64A6FDEB24DBF55700BD6136 /* Info.plist */,
@@ -224,9 +233,12 @@
 				64A6FE0624DC68E400BD6136 /* CalendarViewController.swift in Sources */,
 				64A6FDDE24DBF55500BD6136 /* AppDelegate.swift in Sources */,
 				64A6FE0A24DD558200BD6136 /* ExpenseTableViewCell.swift in Sources */,
+				649E2EDC256258B500956B35 /* PlusViewController.swift in Sources */,
+				64501AFF2561B16D008DFB11 /* TabBarController.swift in Sources */,
 				64A6FE1024E2CFD600BD6136 /* MonthTotalViewController.swift in Sources */,
 				64A6FDE024DBF55500BD6136 /* SceneDelegate.swift in Sources */,
 				64A6FDF224DBF88E00BD6136 /* Model.swift in Sources */,
+				64501B012561B470008DFB11 /* AddExpenseViewController.swift in Sources */,
 				64A6FDF424DBFBB300BD6136 /* DateManager.swift in Sources */,
 				64A6FE0E24E1A46100BD6136 /* DesignHelper.swift in Sources */,
 			);
